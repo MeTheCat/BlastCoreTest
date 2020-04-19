@@ -1,63 +1,33 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UniRx.Triggers;
-using UniRx;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
-public class BlastCore : MonoBehaviour, IDeathEventReciever<EnemyType>
+[RequireComponent(typeof(Explosion))]
+public class BlastCore : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
 {
+    #region Private fields
     [SerializeField]
     EnemyType type = EnemyType.BlastCore;
 
-    [SerializeField]
-    private Collider2DTriggerContacts colliderTriggerContacts;
-
-    private Rigidbody2D rigidb;
+    Explosion blastExplosion;
 
     private bool isDying = false;
+    #endregion
 
-    private void Awake()
-    {
-        rigidb = GetComponent<Rigidbody2D>();
-
-        //d=this.killRangeCollider.OnTriggerStay2DAsObservable().Subscribe(collision =>
-        //{
-        //    Debug.DrawLine(this.transform.position, collision.transform.position, Color.green);
-        //});
-    }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-    }
-
-    void OnMouseDown()
-    {
-        NotifyNeighborsAndDie();
-    }
-
-    private void NotifyNeighborsAndDie()
+    public void TriggerChainExplosion()
     {
         if (!isDying)
         {
             isDying = true;
 
-            NotifyNeighbors();
+            blastExplosion.NotifyNeighbors(this.type);
 
             Die();
         }
     }
 
-    private void NotifyNeighbors()
+    public void OnProximityExplosion(EnemyType type)
     {
-        foreach (var contact in colliderTriggerContacts.GetContacts())
-        {
-            if (contact.gameObject.TryGetComponent(out IDeathEventReciever<EnemyType> reciever))
-            {
-                reciever.OnBlastCoreExplosionEvent();
-            }
-        }
+
+        if (type == EnemyType.BlastCore) Die();
     }
 
     private void Die()
@@ -65,19 +35,15 @@ public class BlastCore : MonoBehaviour, IDeathEventReciever<EnemyType>
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseDown()
     {
-        if (this.rigidb.IsSleeping()) this.rigidb.WakeUp();
+        TriggerChainExplosion();
     }
 
-    public void OnProximityDeathEvent(EnemyType type)
+    #region Setup
+    private void Awake()
     {
+        blastExplosion = GetComponent<Explosion>();
     }
-
-    //Can one blast core kill another?
-    public void OnBlastCoreExplosionEvent()
-    {
-        Destroy(gameObject);
-    }
+    #endregion
 }

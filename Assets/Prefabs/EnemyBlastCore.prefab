@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4979173312713333234}
   - component: {fileID: 5406099307279419453}
   - component: {fileID: 2785275846060495606}
-  m_Layer: 13
+  m_Layer: 2
   m_Name: BlastCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 8131208542216410224}
   - component: {fileID: 3925623531220899340}
   - component: {fileID: -1181818225812230515}
+  - component: {fileID: 4825819560164900520}
   m_Layer: 13
   m_Name: EnemyBlastCore
   m_TagString: Enemy
@@ -196,5 +197,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  killRangeCollider: {fileID: 5406099307279419453}
-  colliderTriggerContacts: {fileID: 2785275846060495606}
+--- !u!114 &4825819560164900520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115388653954902058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9fdf347a7c9284a9c75e7b71b608d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider2DTriggerContacts: {fileID: 2785275846060495606}
