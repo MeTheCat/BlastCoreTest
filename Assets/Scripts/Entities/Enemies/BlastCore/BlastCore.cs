@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Explosion))]
-public class BlastCore : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
+public class BlastCore : MonoBehaviour, ITappable, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
 {
     #region Private fields
     [SerializeField]
@@ -35,7 +35,7 @@ public class BlastCore : MonoBehaviour, ITriggerProximityExplosion, IDieFromProx
         Destroy(gameObject);
     }
 
-    void OnMouseDown()
+    public void OnTappedOnce()
     {
         TriggerChainExplosion();
     }

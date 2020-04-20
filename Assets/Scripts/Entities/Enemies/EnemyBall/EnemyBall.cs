@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Explosion))]
-public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
+public class EnemyBall : MonoBehaviour, ITappable, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
 {
     #region Private Fields
     [SerializeField]
@@ -42,7 +42,7 @@ public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProx
         Destroy(gameObject);
     }
 
-    void OnMouseDown()
+    public void OnTappedOnce()
     {
         //if (!isCanDieInMotion && !rigidb.IsSleeping()) return;
 
