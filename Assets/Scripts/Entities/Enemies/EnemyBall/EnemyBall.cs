@@ -14,6 +14,9 @@ public class EnemyBall : MonoBehaviour, ITappable, ITriggerProximityExplosion, I
     private bool isCanDieInMotion = false;
 
     private bool isDying;
+
+    [SerializeField]
+    private GameObject deathPrefab;
     #endregion
 
     public void TriggerChainExplosion()
@@ -40,6 +43,7 @@ public class EnemyBall : MonoBehaviour, ITappable, ITriggerProximityExplosion, I
     private void Die()
     {
         Destroy(gameObject);
+        if (deathPrefab!=null) Instantiate(deathPrefab, transform.position, transform.rotation);
     }
 
     public void OnTappedOnce()

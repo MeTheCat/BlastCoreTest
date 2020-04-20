@@ -137,6 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   isCanDieInMotion: 0
+  deathPrefab: {fileID: 6410880076417862970, guid: 53187b85cd4983b4e98f5cee181f5ba7,
+    type: 3}
 --- !u!114 &-5282839974499490621
 MonoBehaviour:
   m_ObjectHideFlags: 0

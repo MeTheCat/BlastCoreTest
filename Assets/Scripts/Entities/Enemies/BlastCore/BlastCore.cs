@@ -9,6 +9,11 @@ public class BlastCore : MonoBehaviour, ITappable, ITriggerProximityExplosion, I
 
     Explosion blastExplosion;
 
+    [SerializeField]
+    private GameObject implodePrefab;
+    [SerializeField]
+    private GameObject explodePrefab;
+
     private bool isDying = false;
     #endregion
 
@@ -33,6 +38,7 @@ public class BlastCore : MonoBehaviour, ITappable, ITriggerProximityExplosion, I
     private void Die()
     {
         Destroy(gameObject);
+        if (explodePrefab != null) Instantiate(explodePrefab, transform.position, transform.rotation);
     }
 
     public void OnTappedOnce()

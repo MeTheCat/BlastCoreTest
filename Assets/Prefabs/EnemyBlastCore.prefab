@@ -4954,6 +4954,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  implodePrefab: {fileID: 0}
+  explodePrefab: {fileID: 4629006827534799589, guid: 31283489a4d077f47b612f3dc6a309ad,
+    type: 3}
 --- !u!114 &4825819560164900520
 MonoBehaviour:
   m_ObjectHideFlags: 0
