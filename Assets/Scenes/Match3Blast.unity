@@ -440,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnabled: 0
   aimBounds: {fileID: 0}
+  zoomSpeed: 0.1
   zoomOutMin: 6
   zoomOutMax: 12
 --- !u!1 &387756508
@@ -1049,6 +1050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnabled: 0
   aimBounds: {fileID: 1363598371}
+  zoomSpeed: 0.1
   zoomOutMin: 6
   zoomOutMax: 12
 --- !u!81 &752159843
