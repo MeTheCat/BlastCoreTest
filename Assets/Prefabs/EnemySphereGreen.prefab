@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 6577078928930312504}
   - component: {fileID: 9194731095536256456}
   - component: {fileID: -2207318976340355462}
+  - component: {fileID: 4830859235456720895}
   m_Layer: 13
   m_Name: EnemySphereGreen
   m_TagString: Enemy
@@ -213,3 +214,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider2DTriggerContacts: {fileID: 3747745252264072030}
+--- !u!114 &4830859235456720895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081435080877715230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00348ed9b9deceb418d692a42eca51b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTappedOnce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9194731095536256456}
+        m_MethodName: OnTapped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  dragThreshold: 5

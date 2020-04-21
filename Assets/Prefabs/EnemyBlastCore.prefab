@@ -4829,6 +4829,7 @@ GameObject:
   - component: {fileID: 3925623531220899340}
   - component: {fileID: -1181818225812230515}
   - component: {fileID: 4825819560164900520}
+  - component: {fileID: -5749582334026549693}
   m_Layer: 13
   m_Name: EnemyBlastCore
   m_TagString: Enemy
@@ -4970,6 +4971,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider2DTriggerContacts: {fileID: 2785275846060495606}
+--- !u!114 &-5749582334026549693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115388653954902058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00348ed9b9deceb418d692a42eca51b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTappedOnce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1181818225812230515}
+        m_MethodName: OnTapped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  dragThreshold: 5
 --- !u!1 &1800584964640857046
 GameObject:
   m_ObjectHideFlags: 0
