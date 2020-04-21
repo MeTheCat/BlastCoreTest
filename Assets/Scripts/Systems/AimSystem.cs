@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AimSystem : MonoBehaviour
 {
+    #region Private fields
     [SerializeField]
-    private bool isEnabled;
+    private bool isEnabled = false;
 
     [Tooltip("Camera will not pan beyound these bounds")]
     [SerializeField]
@@ -14,12 +15,21 @@ public class AimSystem : MonoBehaviour
     [SerializeField]
     private float zoomSpeed = 0.1f;
 
+    [SerializeField]
+    private GameObject aimHUD;
+
+    [SerializeField]
+    private float zoomOutMin = 1;
+    [SerializeField]
+    private float zoomOutMax = 8;
+
     private Camera mainCamera;
 
-    Vector3 touchStart;
-    public float zoomOutMin = 1;
-    public float zoomOutMax = 8;
+    private Vector3 originalPosition;
+
     private bool isZooming;
+    private Vector3 touchStart;
+    #endregion
 
     private bool IsPosWithinBounds(Vector3 position)
     {
@@ -33,8 +43,23 @@ public class AimSystem : MonoBehaviour
         }
     }
 
+    public void ToggleAimActive()
+    {
+        isEnabled = !isEnabled;
+        aimHUD.SetActive(isEnabled);
+
+        //TODO: Dottween smoothly to the original position
+        if (!isEnabled)
+        {
+            mainCamera.orthographicSize = this.zoomOutMax;
+            mainCamera.transform.position = originalPosition;
+        } 
+    }
+
     void Update()
     {
+        if (!isEnabled) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             if (!isZooming)
@@ -81,6 +106,7 @@ public class AimSystem : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        originalPosition = mainCamera.transform.position;
     }
     #endregion
 }
