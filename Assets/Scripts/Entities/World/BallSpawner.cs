@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
@@ -42,41 +43,31 @@ public class BallSpawner : MonoBehaviour
 
     public void SpawnEnemies()
     {
+        if (spawerState == SpawnerState.Spawning) return;
+
+        spawerState = SpawnerState.Spawning;
+
+        Observable.FromCoroutine(KeepSpawning).Subscribe(_ => spawerState = SpawnerState.Idle);
+    }
+
+    IEnumerator KeepSpawning()
+    {
         foreach (var enemyType in enemiesToSpawn.Select((value, index) => new { value, index }))
         {
             for (int e = 0; e < enemyType.value.NumObjects; e++)
             {
-                SpawnDelayedAtLocation(enemyType.value.Prefab, spawnPoints.RandomElement(), spawnDelayMs * (enemyType.index + 1) * (e + 1));
+                SpawnAtLocation(enemyType.value.Prefab, spawnPoints.RandomElement());
+
+                yield return new WaitForSeconds(spawnDelayMs / 1000);
             }
         }
     }
 
-    /// <summary>
-    /// Spawn immedietly or queue spawning
-    /// </summary>
-    public void SpawnMoreOrQueue()
-    {
-    }
-
-    public void SpawnMore(List<EnemyTypeNumber> enemies)
-    {
-        if (spawerState.Equals(SpawnerState.Spawning))
-        {
-            Debug.LogError("Busy spawning, queuing instead");
-            return;
-        }
-    }
-
-    private void SpawnDelayedAtLocation(GameObject prefab, Transform location, int delay)
-    {
-        Vector3 deviateByX = new Vector3(Random.Range(-randXDeviation, randXDeviation), 0, 0);
-        Observable.Timer(TimeSpan.FromMilliseconds(delay)).Subscribe(
-                    x => Instantiate(prefab, location.transform.position + deviateByX, location.transform.rotation));
-    }
-
     private void SpawnAtLocation(GameObject prefab, Transform location)
     {
-        Instantiate(prefab, location.transform.position, location.transform.rotation);
+        Vector3 deviateByX = new Vector3(Random.Range(-randXDeviation, randXDeviation), 0, 0);
+
+        Instantiate(prefab, location.transform.position + deviateByX, location.transform.rotation);
     }
 
     #region Setup
