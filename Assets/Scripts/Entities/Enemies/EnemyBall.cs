@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+
+[System.Serializable]
+public class EnemyDeathEvent : UnityEvent<EnemyType> { }
+[System.Serializable]
+public class EnemySpawnEvent : UnityEvent<EnemyType> { }
 
 [RequireComponent(typeof(Explosion))]
 public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
@@ -19,6 +25,10 @@ public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProx
     [SerializeField]
     private GameObject deathPrefab;
     #endregion
+
+    public EnemyDeathEvent EnemyDeathEvent = new EnemyDeathEvent();
+
+    public EnemyDeathEvent EnemySpawnEvent = new EnemyDeathEvent();
 
     public void TriggerChainExplosion()
     {
@@ -49,14 +59,23 @@ public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProx
 
     private void Die()
     {
+        EnemyDeathEvent.Invoke(type);
         Destroy(gameObject);
-        if (deathPrefab!=null) Instantiate(deathPrefab, transform.position, transform.rotation);
+        if (deathPrefab != null) Instantiate(deathPrefab, transform.position, transform.rotation);
     }
 
     #region Setup
     void Awake()
     {
         explosion = GetComponent<Explosion>();
+
+        if (LevelManager.Instance != null)
+        {
+            this.EnemyDeathEvent.AddListener(LevelManager.Instance.OnEnemyDied);
+            this.EnemySpawnEvent.AddListener(LevelManager.Instance.OnEnemySpawned);
+        }
+
+        EnemySpawnEvent.Invoke(type);
     }
     #endregion
 }
