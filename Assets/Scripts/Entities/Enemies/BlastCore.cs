@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Explosion))]
-public class BlastCore : MonoBehaviour, ITappable, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
+public class BlastCore : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
 {
     #region Private fields
     [SerializeField]
@@ -31,19 +32,18 @@ public class BlastCore : MonoBehaviour, ITappable, ITriggerProximityExplosion, I
 
     public void OnProximityExplosion(EnemyType type)
     {
-
         if (type == EnemyType.BlastCore) Die();
+    }
+
+    public void OnTapped()
+    {
+        TriggerChainExplosion();
     }
 
     private void Die()
     {
         Destroy(gameObject);
         if (explodePrefab != null) Instantiate(explodePrefab, transform.position, transform.rotation);
-    }
-
-    public void OnTappedOnce()
-    {
-        TriggerChainExplosion();
     }
 
     #region Setup

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -51,8 +49,6 @@ public class BallSpawner : MonoBehaviour
                 SpawnDelayedAtLocation(enemyType.value.Prefab, spawnPoints.RandomElement(), spawnDelayMs * (enemyType.index + 1) * (e + 1));
             }
         }
-
-        // SpawnDelayedAtLocation(objectsToSpawn[0].Prefab, spawnPoints[0], spawnDelayMs);
     }
 
     /// <summary>
@@ -60,7 +56,6 @@ public class BallSpawner : MonoBehaviour
     /// </summary>
     public void SpawnMoreOrQueue()
     {
-
     }
 
     public void SpawnMore(List<EnemyTypeNumber> enemies)
@@ -84,9 +79,10 @@ public class BallSpawner : MonoBehaviour
         Instantiate(prefab, location.transform.position, location.transform.rotation);
     }
 
-    // Start is called before the first frame update
+    #region Setup
     void Start()
     {
         SpawnEnemies();
     }
+    #endregion
 }

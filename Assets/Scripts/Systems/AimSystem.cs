@@ -77,8 +77,10 @@ public class AimSystem : MonoBehaviour
         mainCamera.orthographicSize = Mathf.Clamp(mainCamera.orthographicSize - increment, zoomOutMin, zoomOutMax);
     }
 
+    #region Setup
     void Start()
     {
         mainCamera = Camera.main;
     }
+    #endregion
 }

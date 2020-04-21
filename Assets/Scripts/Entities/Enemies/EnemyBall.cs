@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Explosion))]
-public class EnemyBall : MonoBehaviour, ITappable, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
+public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
 {
     #region Private Fields
     [SerializeField]
@@ -40,28 +41,22 @@ public class EnemyBall : MonoBehaviour, ITappable, ITriggerProximityExplosion, I
             Die();
     }
 
+    public void OnTapped()
+    {
+        //if (!isCanDieInMotion && !rigidb.IsSleeping()) return;
+        TriggerChainExplosion();
+    }
+
     private void Die()
     {
         Destroy(gameObject);
         if (deathPrefab!=null) Instantiate(deathPrefab, transform.position, transform.rotation);
     }
 
-    public void OnTappedOnce()
-    {
-        //if (!isCanDieInMotion && !rigidb.IsSleeping()) return;
-
-        TriggerChainExplosion();
-    }
-
     #region Setup
     void Awake()
     {
         explosion = GetComponent<Explosion>();
-    }
-
-    void Start()
-    {
-
     }
     #endregion
 }
