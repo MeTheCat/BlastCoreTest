@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 114289999543715932}
   - {fileID: 114851068927223458}
   - {fileID: 114057269343516260}
+  - {fileID: 387228689932847610}
 --- !u!114 &114057269343516260
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1381,34 +1382,34 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 5
+    value: 3
   threshold:
-    overrideState: 1
-    value: 1
+    overrideState: 0
+    value: 123.8
   softKnee:
-    overrideState: 1
+    overrideState: 0
     value: 0.5
   clamp:
-    overrideState: 1
-    value: 65469.95
+    overrideState: 0
+    value: 1
   diffusion:
-    overrideState: 1
+    overrideState: 0
     value: 7
   anamorphicRatio:
-    overrideState: 1
+    overrideState: 0
     value: 0
   color:
-    overrideState: 1
+    overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
     overrideState: 1
-    value: 0
+    value: 1
   dirtTexture:
-    overrideState: 1
+    overrideState: 0
     value: {fileID: 0}
     defaultState: 1
   dirtIntensity:
-    overrideState: 1
+    overrideState: 0
     value: 0
 --- !u!114 &114731480079238622
 MonoBehaviour:
@@ -1422,7 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1431,16 +1432,16 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 0.16037738, g: 0.13768247, b: 0.13768247, a: 0.6}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.37
+    value: 0.524
   smoothness:
     overrideState: 1
-    value: 0.2
+    value: 0.063
   roundness:
     overrideState: 1
     value: 1
@@ -1479,4 +1480,26 @@ MonoBehaviour:
     value: 0
   fastMode:
     overrideState: 1
-    value: 0
+    value: 1
+--- !u!114 &387228689932847610
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  shutterAngle:
+    overrideState: 1
+    value: 147
+  sampleCount:
+    overrideState: 1
+    value: 10
