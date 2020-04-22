@@ -16,10 +16,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private int levelClearedAtEnemiesLeft;
 
-    [ReadOnly, SerializeField]
+    [SerializeField]
     private int enemiesCount = 0;
 
-    [ReadOnly, SerializeField]
+    [SerializeField]
     private int blastCoreCount = 0;
     #endregion
 

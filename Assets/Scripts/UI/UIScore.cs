@@ -21,6 +21,6 @@ public class UIScore : MonoBehaviour
     void Start()
     {
         Text.text = "0";
-        ScoreSystem.Instance.ScoreChangedEvent.AddListener((val) => { Debug.Log("Callback"); Text.text = val; });
+        ScoreSystem.Instance.ScoreChangedEvent.AddListener((val) => { Text.text = val; });
     }
 }

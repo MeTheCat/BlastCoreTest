@@ -8,7 +8,7 @@ public class EnemyDeathEvent : UnityEvent<EnemyType> { }
 public class EnemySpawnEvent : UnityEvent<EnemyType> { }
 
 [RequireComponent(typeof(Explosion))]
-public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
+public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>, ILaserBeamTarget
 {
     #region Private Fields
     [SerializeField]
@@ -62,6 +62,12 @@ public class EnemyBall : MonoBehaviour, ITriggerProximityExplosion, IDieFromProx
         EnemyDeathEvent.Invoke(type);
         Destroy(gameObject);
         if (deathPrefab != null) Instantiate(deathPrefab, transform.position, transform.rotation);
+    }
+
+    public void ShotByLaserBeam()
+    {
+        //Add some fancy explosion effect/logic
+        TriggerChainExplosion();
     }
 
     #region Setup

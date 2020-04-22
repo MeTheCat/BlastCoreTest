@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Explosion))]
-public class BlastCore : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>
+public class BlastCore : MonoBehaviour, ITriggerProximityExplosion, IDieFromProximityExplosion<EnemyType>, ILaserBeamTarget
 {
     #region Private fields
     [SerializeField]
@@ -44,6 +44,11 @@ public class BlastCore : MonoBehaviour, ITriggerProximityExplosion, IDieFromProx
     {
         Destroy(gameObject);
         if (explodePrefab != null) Instantiate(explodePrefab, transform.position, transform.rotation);
+    }
+
+    public void ShotByLaserBeam()
+    {
+        TriggerChainExplosion();
     }
 
     #region Setup

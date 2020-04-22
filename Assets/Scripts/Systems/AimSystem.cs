@@ -46,7 +46,7 @@ public class AimSystem : MonoBehaviour
     public void ToggleAimActive()
     {
         isEnabled = !isEnabled;
-        aimHUD.SetActive(isEnabled);
+        aimHUD?.SetActive(isEnabled);
 
         //TODO: Dottween smoothly to the original position
         if (!isEnabled)
@@ -107,6 +107,7 @@ public class AimSystem : MonoBehaviour
     {
         mainCamera = Camera.main;
         originalPosition = mainCamera.transform.position;
+        aimHUD?.SetActive(false);
     }
     #endregion
 }
