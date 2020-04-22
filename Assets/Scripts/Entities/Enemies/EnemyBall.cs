@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class EnemyDeathEvent : UnityEvent<EnemyType> { }

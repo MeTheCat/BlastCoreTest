@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TapManager : MonoBehaviour
 {

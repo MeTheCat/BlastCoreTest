@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public interface ILaserBeamTarget
+﻿public interface ILaserBeamTarget
 {
     void ShotByLaserBeam();
 }

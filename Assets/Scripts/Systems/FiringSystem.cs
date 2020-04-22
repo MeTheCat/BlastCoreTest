@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FiringSystem : MonoBehaviour
 {
@@ -11,7 +9,7 @@ public class FiringSystem : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.transform.position, Camera.main.transform.forward, 500.0f);
 
-        if (hit.collider!=null)
+        if (hit.collider != null)
         {
             if (hit.collider.TryGetComponent(out ILaserBeamTarget reciever))
             {
@@ -25,7 +23,7 @@ public class FiringSystem : MonoBehaviour
     #region Setup
     void Awake()
     {
-        
+
     }
     #endregion
 }

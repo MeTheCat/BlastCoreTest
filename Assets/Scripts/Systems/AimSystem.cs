@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AimSystem : MonoBehaviour
 {
@@ -53,7 +51,7 @@ public class AimSystem : MonoBehaviour
         {
             mainCamera.orthographicSize = this.zoomOutMax;
             mainCamera.transform.position = originalPosition;
-        } 
+        }
     }
 
     void Update()
