@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Button
   layers:
   - Default
   - TransparentFX
@@ -15,6 +17,10 @@ TagManager:
   - 
   - 
   - 
+  - World
+  - 
+  - 
+  - Enemies
   - 
   - 
   - 
@@ -29,15 +35,14 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Camera
   - 
   - 
   - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Characters
+    uniqueID: 1698795697
     locked: 0
