@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9033238886011308394}
   - component: {fileID: 6840332212409006851}
   - component: {fileID: 5448907364057317408}
-  m_Layer: 13
-  m_Name: TriggerCollider
+  m_Layer: 2
+  m_Name: RTriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,9 +150,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 47421343
+  m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f4e4e3f8b8c593a489531e8878804dbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -201,6 +201,12 @@ MonoBehaviour:
   isCanDieInMotion: 0
   deathPrefab: {fileID: 6410880076417862970, guid: 53187b85cd4983b4e98f5cee181f5ba7,
     type: 3}
+  EnemyDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  EnemySpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-514970900968917110
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7872970574581405674}
   - component: {fileID: 3429166226846703730}
   - component: {fileID: 3747745252264072030}
-  m_Layer: 13
+  m_Layer: 2
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,6 +201,12 @@ MonoBehaviour:
   isCanDieInMotion: 0
   deathPrefab: {fileID: 6410880076417862970, guid: 53187b85cd4983b4e98f5cee181f5ba7,
     type: 3}
+  EnemyDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  EnemySpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-2207318976340355462
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4889,7 +4889,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aebfd11118c569c44bce0a6e72a1fd4b, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5009,7 +5009,7 @@ GameObject:
   - component: {fileID: 4745553781824354696}
   - component: {fileID: 8869470468827007417}
   - component: {fileID: 4415469391922049693}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EdgePS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9763,7 +9763,7 @@ GameObject:
   - component: {fileID: 7495644398348737845}
   - component: {fileID: 5757086361011570007}
   - component: {fileID: 5049466092030075882}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DarknessPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
